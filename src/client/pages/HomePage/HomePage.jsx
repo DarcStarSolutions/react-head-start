@@ -1,6 +1,6 @@
 //An example of a basic page with no redux binding (see UserPage for a redux example)
-import React, { Component } from 'react';
-import {MainLayout, Helmet} from '../../components/';
+import React, {Component} from 'react';
+import {Helmet, MainLayout} from '../../components';
 
 
 export default class HomePage extends Component {

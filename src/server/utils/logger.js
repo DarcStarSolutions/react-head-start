@@ -1,6 +1,6 @@
 /*
 Setup for winston logger. Default logger setup is to console and to file. Common
-config (like desired log level, or log file location) is already controlled by config 
+config (like desired log level, or log file location) is already controlled by config
 files (see config/default.js) so they can be easily configured per environment.
 */
 import path from 'path';
@@ -32,9 +32,9 @@ export default function getLog(context) {
   if(!context){
     const filePath = callerCallsite().getFileName();
     context = path.basename(filePath);
-  }  
+  }
 
-  const logger = new winston.Logger({
+  return winston.createLogger({
     transports: [
 
       new (winston.transports.Console)({
@@ -42,12 +42,12 @@ export default function getLog(context) {
         handleExceptions: true,
         json: false,
         colorize: true,
-        formatter: (options)=>{
+        formatter: (options) => {
           return formatLogMessage(options, context);
         }
       }),
 
-      new (winston.transports.File)({ 
+      new (winston.transports.File)({
         level: config.logging.logFileLogLevel,
         filename: config.logging.logFilePath,
         handleExceptions: true,
@@ -55,16 +55,14 @@ export default function getLog(context) {
         maxsize: config.logging.maxLogFileSizeInMB * BYTES_PER_MEGABYTE,
         maxFiles: config.logging.maxLogFileCount,
         colorize: false,
-        formatter: (options)=>{
+        formatter: (options) => {
           return formatLogMessage(options, context);
         }
       })
-      
+
     ],
     exitOnError: false
   });
-
-  return logger;
 }
 
 function isEmptyObjectOrUndefined(obj){
