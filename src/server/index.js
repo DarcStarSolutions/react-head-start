@@ -6,7 +6,7 @@ import compression from 'compression';
 import path from 'path';
 import config from 'config';
 import morgan from 'morgan';
-import '@babel/polyfill';
+
 
 import renderPageRoute from './routes/renderPageRoute';
 import {getUsers} from './routes/apiRoute';

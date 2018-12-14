@@ -1,12 +1,46 @@
 {
   "presets": [
-    "@babel/env",
-    "@babel/react"
+    [
+      "@babel/env",
+      {
+         "targets": {
+          "ie": "9"
+        },
+        "ignoreBrowserslistConfig": true,
+        "useBuiltIns": false,
+        "modules": "auto" ,
+
+        "exclude": [
+          "transform-typeof-symbol"
+        ]
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        "development": false,
+        "useBuiltIns": true
+      }
+    ]
   ],
   "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-transform-runtime"
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": false,
+        "helpers": false,
+        "regenerator": true
+
+      }
+    ],
+    ["@babel/plugin-syntax-dynamic-import"]
   ],
   "ignore": [
     "**/__tests__",

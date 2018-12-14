@@ -4,7 +4,6 @@ import './jest.polyfills.js'; //polyfills must be imported before other imports 
 import {configure, mount, render, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
-import '@babel/polyfill';
 // import toJson from 'enzyme-to-json';
 
 //React Enzyme adapter
