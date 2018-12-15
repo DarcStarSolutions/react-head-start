@@ -1,50 +1,51 @@
 {
-  "presets": [
-    [
-      "@babel/env",
-      {
-         "targets": {
-          "ie": "9"
-        },
-        "ignoreBrowserslistConfig": true,
-        "useBuiltIns": false,
-        "modules": "auto" ,
-
-        "exclude": [
-          "transform-typeof-symbol"
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "ie": "9"
+                },
+                "ignoreBrowserslistConfig": true,
+                "useBuiltIns": false,
+                "modules": "auto",
+                "exclude": [
+                    "transform-typeof-symbol"
+                ]
+            }
+        ],
+        [
+            "@babel/preset-react",
+            {
+                "development": false,
+                "useBuiltIns": true
+            }
         ]
-      }
     ],
-    [
-      "@babel/preset-react",
-      {
-        "development": false,
-        "useBuiltIns": true
-      }
+    "plugins": [
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                "loose": true
+            }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": false,
+                "helpers": false,
+                "regenerator": true
+            }
+        ],
+        [
+            "@babel/plugin-syntax-dynamic-import"
+        ],
+        [
+            "inline-react-svg"
+        ]
+    ],
+    "ignore": [
+        "**/__tests__",
+        "**/*.test.js"
     ]
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-proposal-class-properties",
-      {
-        "loose": true
-      }
-    ],
-
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": false,
-        "helpers": false,
-        "regenerator": true
-
-      }
-    ],
-    ["@babel/plugin-syntax-dynamic-import"]
-  ],
-  "ignore": [
-    "**/__tests__",
-    "**/*.test.js"
-  ]
-
 }

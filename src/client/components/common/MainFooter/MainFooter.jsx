@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
 
 
 export default class MainFooter extends Component {
-  render() {
-    return (
-      <footer className="main-footer">
-      </footer>
-    );
-  }
+    render() {
+        return (
+            <footer className="main-footer">
+            </footer>
+        );
+    }
 }

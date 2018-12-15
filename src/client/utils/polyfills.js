@@ -4,5 +4,5 @@
 
 //2) Import the regenerator runtime + specific polyfills from core-js
 //see https://github.com/zloirock/core-js#commonjs
-import 'regenerator-runtime/runtime';
+import "regenerator-runtime/runtime";
 //add core-js polyfills as necessary. e.g. import 'core-js/es6/date'
